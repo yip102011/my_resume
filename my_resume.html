@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background: #fff;
+        color: #202020;
+        font-family: pt sans, ibm plex sans, arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      a {
+        text-decoration: none;
+        color: #202020;
+      }
+      a i {
+        padding: 0 0.2rem 0 0.25rem;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      a:not(.no-external-icon)::after {
+        content: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAQElEQVR42qXKwQkAIAxDUUdxtO6/RBQkQZvSi8I/pL4BoGw/XPkh4XigPmsUgh0626AjRsgxHTkUThsG2T/sIlzdTsp52kSS1wAAAABJRU5ErkJggg==);
+        margin: 0 0.2rem 0 0.25rem;
+      }
+      li {
+        list-style-type: square;
+        padding-left: 0;
+        list-style-position: inside;
+        margin: 0.5rem 0;
+      }
+      *::-webkit-scrollbar {
+        width: 12px;
+        height: 8px;
+      }
+      *::-webkit-scrollbar-thumb {
+        background-color: #087990;
+        outline: 1px solid #087990;
+      }
+      *::-webkit-scrollbar-track {
+        background-color: #08799049;
+      }
+      ::selection {
+        background: #087990;
+        color: #fff;
+      }
+      ::-moz-selection {
+        background: #087990;
+        color: #fff;
+      }
+      .paper {
+        position: relative;
+        margin: 0.5rem auto;
+        padding: 0.45in 0.5in;
+        width: 210mm;
+        height: 297mm;
+        background-color: #fff;
+        -webkit-box-shadow: 0.2rem 0.2rem 0.6rem #aaa;
+        -moz-box-shadow: 0.2rem 0.2rem 0.6rem #aaa;
+        box-shadow: 0.2rem 0.2rem 0.6rem #aaa;
+        box-sizing: border-box;
+        font-size: 0.88rem;
+      }
+      .paper h1,
+      .paper h2,
+      .paper h3 {
+        line-height: 1.2;
+      }
+      .paper h1 {
+        margin-bottom: 0.8rem;
+        font-size: 1.2rem;
+      }
+      .paper h2 {
+        margin-bottom: 0.4rem;
+        font-size: 1.1rem;
+      }
+      .paper h3 {
+        margin-bottom: 0.2rem;
+        font-size: 1rem;
+      }
+      .paper p {
+        margin: 0.5rem 0;
+        font-size: 0.88rem;
+        line-height: 1.5;
+        text-align: justify;
+      }
+      .paper > *:first-child {
+        margin-top: 0;
+      }
+      main.paper {
+        margin-top: 2.5rem;
+        padding-top: 0;
+      }
+      main.paper .grid {
+        width: 100%;
+        height: 100%;
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        grid-template-rows: repeat(10, 1fr);
+        grid-column-gap: 0;
+        grid-row-gap: 0;
+      }
+      main.paper .grid .flex-row {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+      main.paper header {
+        grid-area: 1/1/2/8;
+        border-bottom: #bfbfbf 0.05rem solid;
+        height: 8rem;
+      }
+      main.paper header .title {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        font-family: pt sans, ibm plex sans, arial, sans-serif;
+      }
+      main.paper header .title h1 {
+        margin-bottom: 0.4rem;
+        font-size: 2rem;
+        color: #202020;
+        letter-spacing: 0.15rem;
+      }
+      main.paper header .title h2 {
+        margin-bottom: 0.3rem;
+        font-size: 1rem;
+      }
+      main.paper header .avatar {
+        display: block;
+        margin: 1rem auto;
+        padding: 1rem;
+        object-fit: cover;
+        height: 8.75rem;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        -ms-border-radius: 50%;
+        -o-border-radius: 50%;
+        border-radius: 50%;
+      }
+      main.paper header .contact-links li {
+        list-style: none;
+        margin: 2px;
+      }
+      main.paper header a i {
+        padding: 0;
+      }
+      main.paper .left-column,
+      main.paper .right-column {
+        margin-top: 0.75rem;
+      }
+      main.paper .left-column > *:first-child,
+      main.paper .left-column > *:first-child > *:first-child,
+      main.paper .right-column > *:first-child,
+      main.paper .right-column > *:first-child > *:first-child {
+        margin-top: 0;
+      }
+      main.paper .left-column {
+        grid-area: 2/1/11/6;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        border-right: #bfbfbf 0.05rem solid;
+        padding-right: 1rem;
+      }
+      main.paper .right-column {
+        grid-area: 2/6/7/8;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        margin-left: 0.5rem;
+      }
+      main.paper .right-column li {
+        list-style-type: none;
+        padding: 0;
+      }
+      main.paper .right-column h1 {
+        margin-bottom: 0.5rem;
+        font-size: 1.2rem;
+      }
+      main.paper .right-column h2 {
+        margin-bottom: 0.2rem;
+        font-size: 1rem;
+      }
+      main.paper .right-column h3 {
+        margin-bottom: 0.1rem;
+        font-size: 0.8rem;
+      }
+      main.paper .right-column p {
+        font-size: 0.8rem;
+        line-height: 1.3;
+      }
+      .section {
+        margin-bottom: 1.5rem;
+      }
+      .section > *:last-child {
+        margin-bottom: 0;
+      }
+      .right-column .section {
+        margin-bottom: 1rem;
+      }
+      .section-title {
+        font-family: pt sans, ibm plex sans, arial, sans-serif;
+        border-bottom: solid 0.35rem #202020;
+      }
+      .item {
+        margin-bottom: 0.6rem;
+      }
+      .item dl dt {
+        display: inline;
+        font-weight: 600;
+      }
+      .item dl dt::after {
+        content: ": ";
+      }
+      .item dl dd {
+        display: inline;
+      }
+      .item dl dd:not(:last-child)::after {
+        content: "";
+        display: block;
+        margin-bottom: 0.4em;
+      }
+      .item dl dd *:not(:last-child)::after {
+        content: "; ";
+        margin-right: 0.25rem;
+      }
+      .item.group .item {
+        margin-top: 0;
+      }
+      .item-title {
+        font-weight: 600;
+        margin-bottom: 2px;
+      }
+      .item-info {
+        font-weight: 400;
+        font-size: 14px;
+      }
+      .job-title {
+        font-size: 14px;
+      }
+      .date {
+        color: #636363;
+      }
+      main.paper .right-column .section-education h2,
+      main.paper .left-column .section-education h2,
+      .paper .section-education h2 {
+        margin-bottom: 0;
+        font-size: 1rem;
+      }
+      main.paper .right-column .section-languages .item,
+      main.paper .left-column .section-languages .item,
+      .paper .section-languages .item {
+        margin-bottom: 0.4rem;
+      }
+      main.paper .right-column .section-languages h2,
+      main.paper .left-column .section-languages h2,
+      .paper .section-languages h2 {
+        margin-bottom: 0.1rem;
+        font-size: 0.9rem;
+        line-height: 1.1;
+      }
+      main.paper .right-column .section-languages h2 span,
+      main.paper .left-column .section-languages h2 span,
+      .paper .section-languages h2 span {
+        font-weight: 400;
+        font-size: 0.8rem;
+      }
+      footer {
+        width: 8.25in;
+        margin: 36px auto;
+        text-align: center;
+        display: flex;
+        flex-flow: column;
+      }
+      footer .footer-item {
+        margin-bottom: 0.5rem;
+      }
+      footer .footer-item a {
+        color: #087990;
+        padding: 4px;
+      }
+      footer .footer-item a span {
+        font-weight: 700;
+      }
+      footer .footer-item a:hover {
+        color: #fff;
+        background-color: #087990;
+        text-decoration: none;
+        transition: all 0.35s ease-out;
+        transition-property: all 0.35s ease-out;
+        -webkit-transition-property: all 0.35s ease-out;
+        -moz-transition-property: all 0.35s ease-out;
+        -o-transition-property: all 0.35s ease-out;
+      }
+      footer .footer-item .footer-link:not(:last-child)::after {
+        content: "\00B7";
+      }
+      @media print {
+        @page {
+          size: A4;
+          margin: 0;
+        }
+        html,
+        body {
+          background: #fff;
+          margin: 0;
+          padding: 0;
+        }
+        .paper,
+        main.paper {
+          margin: 0;
+          width: 210mm;
+          height: 297mm;
+          overflow: hidden;
+          -moz-box-shadow: none;
+          -webkit-box-shadow: none;
+          box-shadow: none;
+          page-break-after: always;
+        }
+        a {
+          text-decoration: none;
+        }
+        footer {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="paper" id="my_resume">
+      <div class="grid">
+        <header class="flex-row">
+          <div class="title">
+            <h1 class="name">Isaac Yip</h1>
+            <h2 class="tagline">Software Developer / Devops Engineer</h2>
+          </div>
+          <div class="title">
+            <h2 class="tagline">Contact Links</h2>
+            <ul class="contact-links">
+              <li>
+                <a href="https://github.com/yip102011" class="no-external-icon"><i class="fab fa-github"></i> github</a>
+              </li>
+              <li>
+                <a href="https://stackoverflow.com/users/2854252/yip102011" class="no-external-icon"><i class="fab fa-stack-overflow"></i> stack-overflow</a>
+              </li>
+              <li>
+                <a href="https://linkedin.com/in/yip102011" class="no-external-icon"><i class="fab fa-linkedin"></i> linkedin</a>
+              </li>
+              <li>
+                <a href="mailto: yip102011@gmail.com" class="no-external-icon"><i class="fas fa-envelope"></i> yip102011@gmail.com</a>
+              </li>
+            </ul>
+          </div>
+        </header>
+        <div class="left-column">
+          <div class="section section-experience">
+            <h1 class="section-title">Work Experience</h1>
+            <div class="item group">
+              <h2 class="item-title">Autotoll Limited</h2>
+              <div class="item">
+                <div class="flex-row">
+                  <span class="job-title">Analyst Programmer</span>
+                  <span class="date">12.2022 - Present</span>
+                </div>
+                <p>Participate HK Gov project "Free-flow Tolling System in Hong Kong – Development of Backend System", manage and deploy over 100 application</p>
+                <ul>
+                  <li>Manager Kubernetes, Setup CI/CD for automatic deployment with GitLab-CI, ArgoCD</li>
+                  <li>Work with infra/network team for deployment, do function and connection test, able to understand network design like route table, vlan, gateway</li>
+                  <li>Write Python/Shell script for automatic like clearing disk space, create new project</li>
+                  <li>Develop features with C# like mTLS auth, normal website features like list page, detail page</li>
+                  <li>Develop rest api with C# to integrate with other software lik S3 compatible storage, message queue, elasticsearch, SMTP server</li>
+                  <li>Familiar with TLS certificate, capable to build PKI</li>
+                  <li>Maintain an old PHP website, replace the payment gateway, add website features such as form application pages</li>
+                </ul>
+              </div>
+            </div>
+            <div class="item group">
+              <h2 class="item-title">Rest At Home</h2>
+              <div class="item">
+                <div class="flex-row">
+                  <span class="job-title">Not in Education, Employment or Training</span>
+                  <span class="date">08.2019 - 12.2020</span>
+                </div>
+              </div>
+            </div>
+            <div class="item group">
+              <h2 class="item-title">Ka Shui Manufactory Co., Ltd.</h2>
+              <div class="item">
+                <div class="flex-row">
+                  <span class="job-title">Analyst Programmer</span>
+                  <span class="date">01.2018 - 07.2019</span>
+                </div>
+                <ul>
+                  <li>Develop internal HR system in C# for chinese factory with over 2000 employees.</li>
+                  <li>Develop internal employee rating system in C# for an office with over 100 employees.</li>
+                  <li>Maintain a old system</li>
+                </ul>
+              </div>
+            </div>
+            <div class="item group">
+              <h2 class="item-title">Mobinology Asia Limited</h2>
+              <div class="item">
+                <div class="flex-row">
+                  <span class="job-title">Analyst Programmer</span>
+                  <span class="date">08.2013 - 12.2017</span>
+                </div>
+                <p></p>
+                <div><u>L'hotel Group:</u></div>
+                <ul>
+                  <li>Maintain CRM system (Maximizer), CMS system and PHP website for L'hotel Group</li>
+                  <li>Integration of CRM system (Maximizer) with PHP website in C#</li>
+                </ul>
+                <div><u>Brother International (HK) Ltd.</u></div>
+                <ul>
+                  <li>Maintain CRM system (Maximizer)</li>
+                  <li>eShop management and development include layout, shipping pulgin, PPS payment gateway plugin</li>
+                  <li>Develop warranty system in C#</li>
+                </ul>
+                <div><u>other customer</u></div>
+                <ul>
+                  <li>eShop management (Megento1.9, opencart, PrestaShop), CRM system (Maximizer) management</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="right-column">
+          <div class="section section-certificate">
+            <h1 class="section-title">Certificate</h1>
+            <div class="item">
+              <li>Kubernetes - CKA</li>
+            </div>
+          </div>
+          <div class="section section-devops-skills">
+            <h1 class="section-title">Devops Skills</h1>
+            <div class="item">
+              <li>Kubernetes, Helm, ArgoCD</li>
+              <li>Gitlab, Gitlab-CI, Harbor</li>
+              <li>CI/CD pipline</li>
+              <li>Python, Elasticsearch</li>
+              <li>Linux, Ubuntu, Docker</li>
+              <li>API Gateway - Kong</li>
+              <li>TLS Certificate</li>
+            </div>
+          </div>
+          <div class="section section-devlopment-skills">
+            <h1 class="section-title">Devlopment Skills</h1>
+            <div class="item">
+              <li>C#, .Net, javascript, PHP</li>
+              <li>MySQL, MariaDB, Redis</li>
+              <li>REST API, Microservice</li>
+              <li>Message Queue - Pulsar</li>
+              <li>eShop - Magento 1.9</li>
+              <li></li>
+            </div>
+          </div>
+          <div class="section section-education">
+            <h1 class="section-title">Education</h1>
+            <div class="item">
+              <h2 class="item-title">Higher Diploma in Computer and Information Engineering</h2>
+              <span>Hong Kong Institute of Vocational Education</span><br />
+              <span>2010 - 2013</span>
+            </div>
+          </div>
+          <div class="section section-languages">
+            <h1 class="section-title">Languages</h1>
+            <div class="item">
+              <h2 class="item-title">Cantonese</h2>
+            </div>
+            <div class="item">
+              <h2 class="item-title">Mandarin</h2>
+            </div>
+            <div class="item">
+              <h2 class="item-title">English</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <span class="footer-item">
+        <span class="footer-link">
+          <a class="no-external-icon" onclick="window.print(); return false;"><span>Printout Resume </span><i class="fas fa-print"></i></a>
+        </span>
+      </span>
+      <span class="footer-item">
+        <span class="footer-link">
+          Contact me on <a class="no-external-icon" target="_blank" href="https://linkedin.com/in/yip102011/"><span>Linkedin </span><i class="fab fa-linkedin"></i></a>
+        </span>
+        <span class="footer-link">
+          Check out my <a class="no-external-icon" target="_blank" href="https://isaacyip.com/"><span>Website</span><i class="fas fa-globe"></i></a>
+        </span>
+      </span>
+      <span class="footer-item"> Last update on Dec 2022. </span>
+    </footer>
+  </body>
+</html>
