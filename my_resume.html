@@ -29,9 +29,9 @@
         margin: 0 0.2rem 0 0.25rem;
       }
       li {
-        list-style-type: square;
+        list-style-type: disc;
         padding-left: 0;
-        list-style-position: inside;
+        list-style-position: outside;
         margin: 0.5rem 0;
       }
       *::-webkit-scrollbar {
@@ -167,6 +167,9 @@
         justify-content: flex-start;
         border-right: #bfbfbf 0.05rem solid;
         padding-right: 1rem;
+      }
+      main.paper .left-column li {
+        margin: 0.5rem 0px 0.5rem 16px;
       }
       main.paper .right-column {
         grid-area: 2/6/7/8;
@@ -468,14 +471,22 @@
           <div class="section section-languages">
             <h1 class="section-title">Languages</h1>
             <div class="item">
-              <h2 class="item-title">Cantonese</h2>
+              <span>Cantonese</span>
             </div>
             <div class="item">
-              <h2 class="item-title">Mandarin</h2>
+              <span>Mandarin</span>
             </div>
             <div class="item">
-              <h2 class="item-title">English</h2>
+              <span>English</span>
             </div>
+          </div>
+          <div class="section section-expected-salary">
+            <h1 class="section-title">Expected Salary</h1>
+            <div class="item"><span>$35,000</span></div>
+          </div>
+          <div class="section section-date-of-availability">
+            <h1 class="section-title">Date of Availability</h1>
+            <div class="item"><span>Immediate</span></div>
           </div>
         </div>
       </div>
