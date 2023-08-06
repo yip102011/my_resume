@@ -1,0 +1,8 @@
+2 year in DevOps, 7 year in C# web development
+-Participate HK Gov project "易通行 - Backend system"
+-Familiar with Kubernetes, Helm charts, and Docker.
+-Familiar with CI/CD using GitLab-CI, ArgoCD, Harbor.
+-understanding networking concepts like subnet, route table, and API gateway.
+-Familiar with Linux operations.
+-Well experience in web development
+-knowledge about OIDC, mTLS, REST API
