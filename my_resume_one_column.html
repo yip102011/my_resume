@@ -72,10 +72,10 @@
         line-height: 1.2;
       }
       .paper h1 {
-        margin-bottom: 0.8rem;
         font-size: 1.2rem;
       }
       .paper h2 {
+        margin-top: 0.8rem;
         margin-bottom: 0.4rem;
         font-size: 1.1rem;
       }
@@ -128,6 +128,7 @@
         letter-spacing: 0.15rem;
       }
       main.paper header .title h2 {
+        margin-top: 0rem;
         margin-bottom: 0.3rem;
         font-size: 1rem;
       }
@@ -161,11 +162,11 @@
         margin-top: 0;
       }
       main.paper .left-column {
-        grid-area: 2/1/11/6;
+        grid-area: 2/1/11/8;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
-        border-right: #bfbfbf 0.05rem solid;
+        /* border-right: #bfbfbf 0.05rem solid; */
         padding-right: 1rem;
       }
       main.paper .right-column {
@@ -196,7 +197,7 @@
         line-height: 1.3;
       }
       .section {
-        margin-bottom: 1.5rem;
+        margin-bottom: 0.5rem;
       }
       .section > *:last-child {
         margin-bottom: 0;
@@ -243,7 +244,6 @@
       }
       .job-title {
         font-size: 14px;
-        text-decoration: underline;
       }
       .date {
         color: #636363;
@@ -359,6 +359,10 @@
           </div>
         </header>
         <div class="left-column">
+          <div class="section section-devops-skills">
+            <h1 class="section-title">Devops Skills</h1>
+            <p>Kubernetes, Helm, ArgoCD Gitlab, Gitlab-CI, Harbor , CI/CD pipline , Python, Elasticsearch , Linux, Ubuntu, Docker , API Gateway - Kong , TLS Certificate</p>
+          </div>
           <div class="section section-experience">
             <h1 class="section-title">Work Experience</h1>
             <div class="item group">
@@ -413,11 +417,9 @@
                   <span class="date">08.2013 - 12.2017</span>
                 </div>
                 <ul>
-                  <li>Setup and maintained CRM system (Maximizer), CMS system</li>
-                  <li>Integrated the CRM system (Maximizer) with website</li>
-                  <li>Developed and maintained e-commerce platforms using Magento 1.9</li>
-                  <li>Implemented layout designs, shipping plugins, and PPS payment gateway plugin for the eShop</li>
-                  <li>Managed and provided support for other e-commerce platforms, including OpenCart and PrestaShop</li>
+                  <li>Setup, Integrate and maintained CRM system (Maximizer), CMS system</li>
+                  <li>Managed and provided support for e-shop include Magento 1.9, OpenCart and PrestaShop</li>
+                  <li>Implemented layout designs, shipping plugins, and payment gateway plugin for the eShop</li>
                   <li>Developed warranty and customer service web systems in C#</li>
                   <li>Created features for efficient handling of warranty claims and customer support requests</li>
                   <li>Developed a membership system in C# for member points management</li>
@@ -425,8 +427,16 @@
               </div>
             </div>
           </div>
+          <div class="section section-education">
+            <h1 class="section-title">Education</h1>
+            <div class="item">
+              <h2 class="item-title">Higher Diploma in Computer and Information Engineering</h2>
+              <span>Hong Kong Institute of Vocational Education</span><br />
+              <span>2010 - 2013</span>
+            </div>
+          </div>
         </div>
-        <div class="right-column">
+        <!-- <div class="right-column">
           <div class="section section-certificate">
             <h1 class="section-title">Certificate</h1>
             <ul class="item">
@@ -438,23 +448,23 @@
             <h1 class="section-title">Devops Skills</h1>
             <ul class="item">
               <li>Kubernetes, Helm, ArgoCD</li>
-              <li>CI/CD pipline, Gitlab-CI</li>
-              <li>Gitlab, Harbor</li>
-              <li>Elasticsearch, Grafana</li>
+              <li>Gitlab, Gitlab-CI, Harbor</li>
+              <li>CI/CD pipline</li>
+              <li>Python, Elasticsearch</li>
               <li>Linux, Ubuntu, Docker</li>
-              <li>nginx, Kong API Gateway</li>
+              <li>API Gateway - Kong</li>
               <li>TLS Certificate</li>
-              <li>Python, Shell script</li>
             </ul>
           </div>
           <div class="section section-devlopment-skills">
             <h1 class="section-title">Devlopment Skills</h1>
             <ul class="item">
-              <li>C#, .NetCore, javascript, PHP</li>
+              <li>C#, .Net, javascript, PHP</li>
               <li>MySQL, MariaDB, Redis</li>
               <li>REST API, Microservice</li>
               <li>Message Queue - Pulsar</li>
               <li>eShop - Magento 1.9</li>
+              <li></li>
             </ul>
           </div>
           <div class="section section-education">
@@ -477,7 +487,7 @@
               <h2 class="item-title">English</h2>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </main>
     <footer>
